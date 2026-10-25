@@ -1,0 +1,18 @@
+.tree-definitions{position:absolute;width:0;height:0;overflow:hidden;pointer-events:none}
+.whole-tree{display:block;width:100%;height:100%;overflow:visible}
+.tree-grove{gap:0 5px;filter:drop-shadow(0 3px 2px #28534424);pointer-events:none}
+.tree-grove i{display:block;width:44px;height:57px;transform:rotate(10deg)}
+.grove-apple{left:12%;top:9%;transform:none}
+.grove-orange{right:9%;top:16%;transform:none}
+.grove-banana{left:12%;bottom:8%;transform:none}
+.grove-grape{left:48%;bottom:9%;grid-template-columns:repeat(2,1fr);transform:none}
+.grove-grape i{width:45px;height:58px}
+.map-pin{background:transparent;border-radius:0;box-shadow:none;width:70px;height:90px;padding:0;filter:drop-shadow(0 4px 2px #173e4d33);transform:rotate(10deg);z-index:3}
+.map-pin:hover,.map-pin:focus-visible{transform:rotate(10deg) scale(1.12);filter:drop-shadow(0 0 6px #fff8b2)}
+.map-pin:focus-visible{outline:3px solid #fff8b2;outline-offset:4px;border-radius:12px}
+.pin-apple{left:12%;top:7%}.pin-orange{right:12%;top:14%}.pin-banana{left:12%;bottom:7%}.pin-grape{left:48%;bottom:8%}
+.map-label{z-index:5;background:#fffdf3ed;padding:2px 7px;border-radius:5px;font-size:12px;pointer-events:none}
+.label-apple{top:4%;left:11%}.label-orange{top:13%;right:4%}.label-banana{left:7%;bottom:4%}.label-grape{left:51%;bottom:3%}
+.road-main{width:5%}.river{z-index:0}.fruit-icon{width:110px;height:140px;margin:18px 0 14px}.detail-visual>.whole-tree{width:220px;height:282px;filter:drop-shadow(0 14px 8px #254d3333)}
+@media(max-width:800px){.island-wrap{height:440px}.island{height:76%}.tree-grove i{width:39px;height:50px}.grove-grape i{width:40px;height:51px}.map-pin{width:64px;height:82px}}
+@media(max-width:450px){.island-wrap{height:360px}.tree-grove{gap:0}.tree-grove i{width:28px;height:36px}.grove-grape i{width:30px;height:38px}.map-pin{width:46px;height:59px}.map-label{font-size:10px}.fruit-basket{font-size:22px}.map-note{font-size:10px}.brand small{font-size:9px}.hero-buttons{flex-wrap:wrap}}

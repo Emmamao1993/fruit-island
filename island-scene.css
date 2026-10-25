@@ -1,0 +1,27 @@
+/* The illustrated map is the focus of the page. */
+.hero{display:flex;flex-direction:column;gap:0;padding:54px 0 12px}
+.hero-copy{width:100%;max-width:880px;text-align:center;margin:auto}
+.hero-copy h1{font-size:clamp(38px,5vw,64px);line-height:1.25;margin:14px 0}
+.hero-copy h1 br{display:none}.hero-copy .lede{max-width:640px;margin:0 auto}
+.hero-copy{order:0}.island-wrap{order:1}
+.hero-buttons{justify-content:center;margin-top:24px}.fruit-rain{display:none}
+.island-wrap{width:100%;height:auto;aspect-ratio:800/910;max-width:960px;margin:8px auto 0;isolation:isolate}
+.sun{width:180px;height:180px;top:15%;right:10%;opacity:.5}.island-shadow{display:none}
+.island{position:absolute;left:0;top:0;bottom:auto;width:100%;height:auto;aspect-ratio:800/820;border-radius:0;background:none;box-shadow:none;transform:none}
+.island-illustration{display:block;width:100%;height:100%;overflow:visible;filter:drop-shadow(0 12px 14px #386f7520)}
+.island-illustration use{pointer-events:none}
+.planted-tree{filter:saturate(1.09)}
+.island-wrap:after{content:"FRUIT ISLAND / 小琉球島形靈感";left:5%;right:auto;top:3%;font-size:11px;color:#42747e}
+.map-pin{width:auto;height:auto;padding:7px 13px;text-align:left;border-radius:8px;background:#fffdf1ed;border:1px solid #ffffffad;box-shadow:0 4px 0 #42674d22;filter:none;transform:none;line-height:1.4;z-index:3;color:#2b5249;min-width:90px}
+.map-pin b{display:block;font-size:15px;letter-spacing:.05em}.map-pin span{display:block;font-size:10px;font-weight:500;color:#648171}
+.map-pin:hover,.map-pin:focus-visible{transform:translateY(-3px);filter:none;background:#fffef4;box-shadow:0 6px 12px #355a4829}
+.pin-apple{left:39%;top:34%;border-left:4px solid #d95e57}.pin-orange{right:18%;top:26%;border-left:4px solid #e4a142}
+.pin-banana{left:19%;top:80%;bottom:auto;border-left:4px solid #d0b447}.pin-grape{left:45%;top:56%;bottom:auto;border-left:4px solid #9470b0}
+.village-label,.port-label{position:absolute;font:700 12px "Noto Sans TC",sans-serif;color:#526b5c;background:#fffcf0e6;padding:4px 9px;border-radius:5px;pointer-events:none;z-index:3}
+.village-label{left:17%;top:59%}.port-label{right:4%;top:15%;color:#4c7480}
+.island-legend{position:absolute;bottom:1%;left:50%;transform:translateX(-50%);display:flex;gap:22px;white-space:nowrap;font-size:12px;letter-spacing:.04em;color:#456f70;background:#f9fbefb3;border:1px solid #ffffff9c;border-radius:30px;padding:9px 20px}
+.map-note{bottom:9%;left:3%;box-shadow:none;background:#fcfbefba;border:1px solid #ffffff9c;font-size:11px}.fruit-basket{bottom:10%;right:4%;font-size:26px;border-width:2px;opacity:.9}
+.toolbar{margin-top:12px;margin-bottom:90px}.orchard-card{border-radius:15px;background:#fffdf4}.fruit-icon{width:125px;height:155px}.detail-visual{background:radial-gradient(ellipse at 50% 55%,#ebedc5,#99bc83)}
+@media(min-width:1400px){.island-wrap{margin-top:10px}}
+@media(max-width:800px){.hero{padding-top:35px}.island-wrap{aspect-ratio:800/930}.hero-copy .lede{font-size:17px;max-width:540px}.map-pin{min-width:72px;padding:5px 8px}.map-pin b{font-size:12px}.map-pin span{font-size:9px}.island-legend{gap:15px;padding:7px 14px;font-size:11px}.fruit-basket{font-size:21px}.island-wrap:after{font-size:9px}.toolbar{margin-bottom:60px}.village-label,.port-label{font-size:10px;padding:3px 6px}}
+@media(max-width:450px){.map-pin{min-width:53px;padding:3px 5px;border-left-width:3px;border-radius:5px}.map-pin b{font-size:10px}.map-pin span{font-size:7px}.hero-copy h1{font-size:35px}.island-wrap{aspect-ratio:800/980;margin-top:15px}.island-legend{gap:9px;font-size:9px;bottom:3%;padding:6px 10px}.fruit-basket{font-size:16px;bottom:13%}.map-note{font-size:8px;padding:4px 6px;bottom:13%;left:1%}.village-label,.port-label{font-size:8px}.island-wrap:after{font-size:8px}.hero-buttons{gap:5px}.primary-btn,.ghost-btn{font-size:14px}}

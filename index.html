@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="水果島：遍布蘋果樹、橘子樹、香蕉樹與葡萄藤的果園島嶼，沿著環島小徑探索村落和海岸小港。" />
+  <title>水果島｜滿滿的水果</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;800;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .road{position:absolute;background:#e7c895;border:2px solid rgba(148,105,58,.28);z-index:1;border-radius:999px}.road-main{width:12%;height:92%;left:45%;top:4%;transform:rotate(-22deg)}.road-branch-a{width:52%;height:7%;left:15%;top:46%;transform:rotate(-17deg)}.road-branch-b{width:42%;height:6%;left:44%;top:57%;transform:rotate(25deg)}.tree-grove{position:absolute;z-index:2;display:grid;grid-template-columns:repeat(3,1fr);gap:1px;font-size:30px;line-height:1;filter:drop-shadow(0 5px 2px rgba(33,83,52,.25))}.tree-grove i{font-style:normal}.grove-apple{left:19%;top:21%;transform:rotate(10deg)}.grove-orange{right:17%;top:29%;transform:rotate(-8deg)}.grove-grape{left:42%;bottom:17%;grid-template-columns:repeat(4,1fr);font-size:25px}.grove-banana{left:10%;bottom:21%;grid-template-columns:repeat(3,1fr);font-size:26px}.island-truck,.farmer{position:absolute;z-index:4;font-size:26px;filter:drop-shadow(0 3px 1px rgba(22,59,79,.25));animation:drive 7s ease-in-out infinite}.island-truck{left:41%;top:50%;transform:rotate(-15deg)}.farmer{left:61%;bottom:25%;font-size:25px;animation-delay:-2s}@keyframes drive{0%,100%{translate:0 0}50%{translate:6px -4px}}.orchard-grid{grid-template-columns:repeat(4,1fr)}.pin-banana{bottom:20%;left:12%}.label-banana{bottom:26%;left:5%}.island{width:86%;height:70%;transform:rotate(-10deg) perspective(850px) rotateX(12deg)}.island-wrap:after{content:"鳥瞰果樹島";position:absolute;right:5%;top:4%;font:700 12px "Space Mono",monospace;letter-spacing:.12em;color:#2a6377}@media(max-width:800px){.orchard-grid{grid-template-columns:1fr}}
+  </style>
+  <link rel="stylesheet" href="tree-art.css" />
+  <link rel="stylesheet" href="island-scene.css" />
+</head>
+<body>
+  <a class="skip-link" href="#orchards">跳至果園內容</a>
+  <header class="topbar shell">
+    <a class="brand" href="#top" aria-label="水果島首頁">
+      <span class="brand-mark" aria-hidden="true">⌁</span>
+      <span>
+        <strong>水果島</strong>
+        <small>FRUIT ABUNDANCE ISLAND</small>
+      </span>
+    </a>
+    <div class="top-actions">
+      <label class="text-size">字級
+        <select id="textSize" aria-label="選擇文字大小">
+          <option value="normal">標準</option>
+          <option value="large" selected>大字</option>
+          <option value="xlarge">特大</option>
+        </select>
+      </label>
+      <a class="primary-btn" href="#about">認識這座島 ↗</a>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero shell" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="dot"></span> 一座島上的水果盛宴</p>
+        <h1 id="hero-title">滿滿的水果，<br>種成一座島。</h1>
+        <p class="lede">蘋果樹、橘子樹、香蕉樹與葡萄藤鋪滿島嶼。沿著彎彎小徑，走過島民的家，再到小港口迎接滿載果香的日常。</p>
+        <div class="hero-buttons">
+          <a class="primary-btn" href="#orchards">探索四座果園 <span>↓</span></a>
+          <button class="ghost-btn" id="tourBtn" type="button">開始島嶼導覽 <span>↗</span></button>
+        </div>
+      </div>
+      <div class="fruit-rain" aria-hidden="true"><span>🍎</span><span>🍊</span><span>🍇</span><span>🍓</span><span>🍐</span><span>🍉</span><span>🍒</span></div>
+      <div class="island-wrap" aria-label="水果島示意圖">
+        <div class="sun"></div>
+        <div class="island-shadow"></div>
+        <div class="island">
+          <div class="contour contour-a"></div><div class="contour contour-b"></div><div class="contour contour-c"></div>
+          <div class="road road-main"></div><div class="road road-branch-a"></div><div class="road road-branch-b"></div>
+          <div class="tree-grove grove-apple" aria-label="蘋果樹果樹分布"><i>🌳</i><i>🌳</i><i>🌳</i><i>🌳</i><i>🌳</i><i>🌳</i></div>
+          <div class="tree-grove grove-orange" aria-label="橘子樹果樹分布"><i>🌳</i><i>🌳</i><i>🌳</i><i>🌳</i><i>🌳</i></div>
+          <div class="tree-grove grove-grape" aria-label="葡萄藤分布"><i>🌿</i><i>🌿</i><i>🌿</i><i>🌿</i></div>
+          <div class="tree-grove grove-banana" aria-label="香蕉樹果樹分布"><i>🌴</i><i>🌴</i><i>🌴</i><i>🌴</i><i>🌴</i><i>🌴</i></div>
+          <div class="island-truck" aria-label="採收小貨車">🛻</div><div class="farmer" aria-label="果農">🧑‍🌾</div>
+          <button class="map-pin pin-apple" data-orchard="apple" aria-label="查看蘋果園"><span>🍎</span></button>
+          <button class="map-pin pin-orange" data-orchard="orange" aria-label="查看橘子園"><span>🍊</span></button>
+          <button class="map-pin pin-grape" data-orchard="grape" aria-label="查看葡萄園"><span>🍇</span></button>
+          <button class="map-pin pin-banana" data-orchard="banana" aria-label="查看香蕉園"><span>🍌</span></button>
+          <span class="map-label label-apple">北風坡</span>
+          <span class="map-label label-orange">暖陽灣</span>
+          <span class="map-label label-grape">石階谷</span>
+          <span class="map-label label-banana">南風田</span>
+          <span class="river"></span>
+        </div>
+        <div class="fruit-basket" aria-hidden="true">🍎🍊🍇🍓</div><div class="map-note"><span>○</span> 點選果園，閱讀水果故事</div>
+      </div>
+    </section>
+
+    <section class="toolbar shell" aria-label="場景操作">
+      <button class="tool active" id="overviewBtn" type="button">⌂ <span>全島</span></button>
+      <button class="tool" id="seasonBtn" type="button">☼ <span>當季</span></button>
+      <button class="tool" id="motionBtn" type="button">Ⅱ <span>暫停風景</span></button>
+      <span class="tool-hint">左鍵選擇 · 滾動探索</span>
+      <button class="help-btn" id="helpBtn" type="button" aria-label="操作說明">?</button>
+    </section>
+
+    <section class="orchard-section shell" id="orchards" aria-labelledby="orchard-title">
+      <div class="section-heading">
+        <div><p class="eyebrow"><span class="dot"></span> 島嶼水果導覽</p><h2 id="orchard-title">一島，滿載四種果香。</h2></div>
+        <p>從枝頭到餐桌，四座果園把色彩、香氣和甜味，通通收進這座島。</p>
+      </div>
+      <div class="orchard-grid">
+        <article class="orchard-card selected" data-card="apple">
+          <div class="card-number">01 / 北風坡</div><div class="fruit-icon apple">🍎</div>
+          <h3>蘋果園</h3><p>冷涼的海風，讓果肉保有清脆的聲音。</p>
+          <button class="card-link" data-orchard="apple">進入果園 <span>↗</span></button>
+        </article>
+        <article class="orchard-card" data-card="orange">
+          <div class="card-number">02 / 暖陽灣</div><div class="fruit-icon orange">🍊</div>
+          <h3>橘子園</h3><p>迎著東南日照，酸甜在午後慢慢熟成。</p>
+          <button class="card-link" data-orchard="orange">進入果園 <span>↗</span></button>
+        </article>
+        <article class="orchard-card" data-card="grape">
+          <div class="card-number">03 / 石階谷</div><div class="fruit-icon grape">🍇</div>
+          <h3>葡萄園</h3><p>沿著坡地攀爬，風把香氣留在每一串果實裡。</p>
+          <button class="card-link" data-orchard="grape">進入果園 <span>↗</span></button>
+        </article>
+        <article class="orchard-card" data-card="banana">
+          <div class="card-number">04 / 南風田</div><div class="fruit-icon banana">🍌</div>
+          <h3>香蕉園</h3><p>熱帶南風穿過葉面，讓香蕉長成柔軟的金黃色。</p>
+          <button class="card-link" data-orchard="banana">進入果園 <span>↗</span></button>
+        </article>
+      </div>
+    </section>
+
+    <section class="detail shell" id="about" aria-live="polite">
+      <div class="detail-visual" id="detailVisual"><span>🍎</span><small>北風坡 / 01</small></div>
+      <div class="detail-copy"><p class="eyebrow" id="detailEyebrow">01 · 北風坡</p><h2 id="detailTitle">蘋果園的清脆日常</h2><p id="detailText">清晨的霧從北側山坳升起，海風替果實降溫。這裡的蘋果在日夜溫差裡慢慢長大，入口先是清爽，接著才浮出細緻的甜。</p><div class="detail-meta"><span><b id="detailSeason">09—11</b><small>採收季</small></span><span><b id="detailLight">偏冷涼</b><small>島嶼風土</small></span><span><b id="detailTaste">清脆</b><small>果實個性</small></span></div></div>
+    </section>
+  </main>
+
+  <footer class="footer shell"><span>FRUIT ABUNDANCE ISLAND / 2026</span><span>滿滿的水果，種成一座島。</span></footer>
+  <div class="toast" id="toast" role="status"></div>
+  <script src="tree-art.js"></script>
+  <script src="orchard-illustrations.js"></script>
+  <script src="island-scene.js"></script>
+  <script src="island-botany.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
