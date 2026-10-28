@@ -5,19 +5,22 @@ const data = {
   banana: {eyebrow:'04 · 南風田', title:'香蕉園的金色長葉', text:'南風田的香蕉樹喜歡陽光，也喜歡海風。寬大的葉片把熱氣攔在果串之外，讓香蕉在溫暖的日子裡慢慢累積柔軟的甜。', season:'06—10', light:'溫暖濕潤', taste:'柔甜', emoji:'🍌', label:'南風田 / 04'}
 };
 const $ = (id) => document.getElementById(id);
+let activeOrchard='apple';
 function showOrchard(key){
   const item=data[key];
+  activeOrchard=key;
   document.querySelectorAll('[data-card]').forEach(card=>card.classList.toggle('selected',card.dataset.card===key));
   $('detailEyebrow').textContent=item.eyebrow; $('detailTitle').textContent=item.title; $('detailText').textContent=item.text;
   $('detailSeason').textContent=item.season; $('detailLight').textContent=item.light; $('detailTaste').textContent=item.taste;
   $('detailVisual').innerHTML=treeArtwork(key,treeLabels[key])+`<small>${item.label}</small>`;
   document.querySelector('.detail').scrollIntoView({behavior:'smooth',block:'center'});
 }
-document.querySelectorAll('[data-orchard]').forEach(el=>el.addEventListener('click',()=>showOrchard(el.dataset.orchard)));
+document.querySelectorAll('[data-orchard]').forEach(el=>el.addEventListener('click',()=>{showOrchard(el.dataset.orchard);window.openHarvestGame(el.dataset.orchard);}));
+$('playHarvestBtn').addEventListener('click',()=>window.openHarvestGame(activeOrchard));
 $('textSize').addEventListener('change',(e)=>{document.body.classList.remove('large','xlarge');if(e.target.value!=='normal')document.body.classList.add(e.target.value);});
 $('tourBtn').addEventListener('click',()=>{showOrchard('apple');toast('導覽開始：先從北風坡的蘋果園出發。');});
 $('overviewBtn').addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
 $('seasonBtn').addEventListener('click',()=>toast('當季提示：現在是秋季，北風坡的蘋果正準備採收。'));
-$('motionBtn').addEventListener('click',(e)=>{e.currentTarget.classList.toggle('active');toast(e.currentTarget.classList.contains('active')?'風景已暫停':'風景重新流動');});
-$('helpBtn').addEventListener('click',()=>toast('點選地圖上的果樹或下方卡片，就能閱讀四座果園的故事。'));
+$('motionBtn').addEventListener('click',()=>{const paused=window.toggleIslandMotion();toast(paused?'小貨車、果農與海浪已暫停':'小貨車、果農與海浪繼續動起來');});
+$('helpBtn').addEventListener('click',()=>toast('點選果園標示或「進入果園」可玩採果遊戲；「暫停風景」能暫停小貨車、果農與海浪。'));
 function toast(message){const el=$('toast');el.textContent=message;el.classList.add('show');clearTimeout(window.toastTimer);window.toastTimer=setTimeout(()=>el.classList.remove('show'),2600)}

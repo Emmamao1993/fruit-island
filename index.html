@@ -14,6 +14,7 @@
   </style>
   <link rel="stylesheet" href="tree-art.css" />
   <link rel="stylesheet" href="island-scene.css" />
+  <link rel="stylesheet" href="harvest-game.css" />
 </head>
 <body>
   <a class="skip-link" href="#orchards">跳至果園內容</a>
@@ -70,7 +71,7 @@
           <span class="map-label label-banana">南風田</span>
           <span class="river"></span>
         </div>
-        <div class="fruit-basket" aria-hidden="true">🍎🍊🍇🍓</div><div class="map-note"><span>○</span> 點選果園，閱讀水果故事</div>
+        <div class="fruit-basket" aria-hidden="true">🍎🍊🍇🍓</div><div class="map-note"><span>○</span> 點選果園，和果農一起採果</div>
       </div>
     </section>
 
@@ -85,7 +86,7 @@
     <section class="orchard-section shell" id="orchards" aria-labelledby="orchard-title">
       <div class="section-heading">
         <div><p class="eyebrow"><span class="dot"></span> 島嶼水果導覽</p><h2 id="orchard-title">一島，滿載四種果香。</h2></div>
-        <p>從枝頭到餐桌，四座果園把色彩、香氣和甜味，通通收進這座島。</p>
+        <p>進入一座果園，和果農一起挑戰 30 秒採果。採成熟果、裝滿果籃，收下你的島嶼小紀錄。</p>
       </div>
       <div class="orchard-grid">
         <article class="orchard-card selected" data-card="apple">
@@ -113,9 +114,23 @@
 
     <section class="detail shell" id="about" aria-live="polite">
       <div class="detail-visual" id="detailVisual"><span>🍎</span><small>北風坡 / 01</small></div>
-      <div class="detail-copy"><p class="eyebrow" id="detailEyebrow">01 · 北風坡</p><h2 id="detailTitle">蘋果園的清脆日常</h2><p id="detailText">清晨的霧從北側山坳升起，海風替果實降溫。這裡的蘋果在日夜溫差裡慢慢長大，入口先是清爽，接著才浮出細緻的甜。</p><div class="detail-meta"><span><b id="detailSeason">09—11</b><small>採收季</small></span><span><b id="detailLight">偏冷涼</b><small>島嶼風土</small></span><span><b id="detailTaste">清脆</b><small>果實個性</small></span></div></div>
+      <div class="detail-copy"><p class="eyebrow" id="detailEyebrow">01 · 北風坡</p><h2 id="detailTitle">蘋果園的清脆日常</h2><p id="detailText">清晨的霧從北側山坳升起，海風替果實降溫。這裡的蘋果在日夜溫差裡慢慢長大，入口先是清爽，接著才浮出細緻的甜。</p><div class="detail-meta"><span><b id="detailSeason">09—11</b><small>採收季</small></span><span><b id="detailLight">偏冷涼</b><small>島嶼風土</small></span><span><b id="detailTaste">清脆</b><small>果實個性</small></span></div><button class="primary-btn game-launch" id="playHarvestBtn" type="button">和果農一起採果 ↗</button></div>
     </section>
   </main>
+
+  <dialog class="harvest-game" id="harvestGame" aria-labelledby="harvestTitle" aria-describedby="harvestRules">
+    <div class="harvest-header"><div><p class="eyebrow">ORCHARD PLAY / 一起收成</p><h2 id="harvestTitle">蘋果園・採果小挑戰</h2></div><button class="harvest-close" id="harvestClose" type="button" aria-label="離開採果遊戲">×</button></div>
+    <p class="harvest-rules" id="harvestRules">30 秒內採滿 12 顆成熟水果。成熟果 +10 分，未熟果 −5 分；連續採對 3 顆再加 5 分。</p>
+    <div class="harvest-hud"><div><small>剩餘時間</small><b id="harvestTime">30 秒</b></div><div><small>本次得分</small><b id="harvestScore">0 分</b></div><div><small>你的果籃</small><b id="harvestCount">0 / 12</b></div><div><small>這座果園的最佳紀錄</small><b id="harvestBest">0 分</b></div></div>
+    <div class="harvest-field" id="harvestField">
+      <div class="harvest-scenery" id="harvestScenery" aria-hidden="true"></div>
+      <div class="harvest-slots" id="harvestSlots" role="group" aria-label="可採收的水果"></div>
+      <div class="harvest-cover" id="harvestCover"><div class="harvest-cover-art" id="harvestCoverArt" aria-hidden="true"></div><h3 id="harvestCoverTitle">今天的收成，交給你！</h3><p id="harvestCoverText">找出標示「成熟」的水果，點一下就能放進果籃。用滑鼠、觸控或鍵盤都可以玩。</p><button class="primary-btn" id="harvestStart" type="button">開始採果</button></div>
+    </div>
+    <div class="harvest-feedback" id="harvestFeedback" role="status" aria-live="polite">果農已經準備好果籃，等你一起收成。</div>
+    <div class="harvest-progress" role="progressbar" id="harvestProgress" aria-label="採收進度" aria-valuemin="0" aria-valuemax="12" aria-valuenow="0"><span id="harvestProgressFill"></span></div>
+    <div class="harvest-footer"><span>採成熟果，讓未熟果再長一會兒。</span><button class="harvest-pause" id="harvestPause" type="button" disabled>暫停遊戲</button></div>
+  </dialog>
 
   <footer class="footer shell"><span>FRUIT ABUNDANCE ISLAND / 2026</span><span>滿滿的水果，種成一座島。</span></footer>
   <div class="toast" id="toast" role="status"></div>
@@ -123,6 +138,8 @@
   <script src="orchard-illustrations.js"></script>
   <script src="island-scene.js"></script>
   <script src="island-botany.js"></script>
+  <script src="island-life.js"></script>
+  <script src="harvest-game.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
